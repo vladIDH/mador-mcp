@@ -1,0 +1,53 @@
+{
+  "name": "mador-mcp",
+  "version": "0.1.0",
+  "description": "A read-only MCP server for any SaaS: per-user bearer tokens, a time limit on every tool call, rate limits and clean errors. Extracted from the MCP server behind Mador.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "homepage": "https://mador.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladIDH/mador-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "chatgpt",
+    "connector",
+    "saas"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "demo": "tsx examples/node-server.ts",
+    "token": "tsx examples/new-token.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.2.0",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "4.1.11"
+  }
+}
